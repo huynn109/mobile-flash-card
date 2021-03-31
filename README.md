@@ -5,7 +5,7 @@ Mình có một khuyết điểm là hay làm trước quên sau. Nhìu khi làm
 ## Kotlin
 1. [Scope function](https://kotlinlang.org/docs/scope-functions.html)
 
-##Android
+## Android
 1. [Đây là nơi để người méo biết gì học Android (Kotlin)](https://developer.android.com/courses/android-basics-kotlin/course):
     - [Kotlin basic](https://developer.android.com/courses/android-basics-kotlin/unit-1)
     - [Layout](https://developer.android.com/courses/android-basics-kotlin/unit-2)
