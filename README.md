@@ -3,6 +3,7 @@ Mình có một khuyết điểm là hay làm trước quên sau. Nhìu khi làm
 => Thế nên repo này được sinh ra là nơi để lưu lại những thứ mình từng làm và tìm hiểu
 ## Bắt đầu nào
 ## Kotlin
+1. [Scope function](https://kotlinlang.org/docs/scope-functions.html)
 ##Android
 1. [Đây là nơi để người méo biết gì học Android (Kotlin)](https://developer.android.com/courses/android-basics-kotlin/course):
     - [Kotlin basic](https://developer.android.com/courses/android-basics-kotlin/unit-1)
