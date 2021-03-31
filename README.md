@@ -4,12 +4,14 @@ Mình có một khuyết điểm là hay làm trước quên sau. Nhìu khi làm
 ## Bắt đầu nào
 ## Kotlin
 1. [Scope function](https://kotlinlang.org/docs/scope-functions.html)
+
 ##Android
 1. [Đây là nơi để người méo biết gì học Android (Kotlin)](https://developer.android.com/courses/android-basics-kotlin/course):
     - [Kotlin basic](https://developer.android.com/courses/android-basics-kotlin/unit-1)
     - [Layout](https://developer.android.com/courses/android-basics-kotlin/unit-2)
     - [Navigation](https://developer.android.com/courses/android-basics-kotlin/unit-3)
     - [Connect to the internet](https://developer.android.com/courses/android-basics-kotlin/unit-3)
-2. [Coroutine](https://kotlinlang.org/docs/coroutines-guide.html)
+3. [Coroutine](https://kotlinlang.org/docs/coroutines-guide.html)
     - s
+    
 ## Flutter
