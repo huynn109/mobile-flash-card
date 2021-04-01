@@ -10,7 +10,7 @@ Mình hay bị ngáo. Nhìu khi làm xong méo nhớ làm cái mịa j luôn <br
     - [run](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/scope/Run.kt)
     - [with - Mỗi thằng này không phải extension méo hiểu =)))](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/scope/With.kt)
 ## Android
-1. [Đây là nơi để người méo biết gì học Android (Kotlin)](https://developer.android.com/courses/android-basics-kotlin/course):
+1. [Nơi tình yêu bắt đầu](https://developer.android.com/courses/android-basics-kotlin/course):
     - [Basic nè](https://developer.android.com/courses/android-basics-kotlin/unit-1)
     - [Layout nè](https://developer.android.com/courses/android-basics-kotlin/unit-2)
     - [Navigation nè](https://developer.android.com/courses/android-basics-kotlin/unit-3)
