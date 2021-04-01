@@ -19,3 +19,6 @@ Mình có một khuyết điểm là hay làm trước quên sau. Nhìu khi làm
 3. [Coroutine](https://kotlinlang.org/docs/coroutines-guide.html)
     
 ## Flutter
+1. SDK
+    - [Http connection call native](https://github.com/dart-lang/sdk/blob/bddded13aad0ee8b1bff7f235a548df5228e5df6/sdk/lib/_internal/vm/bin/socket_patch.dart#L1517)
+    - [Http connection native](https://github.com/dart-lang/sdk/blob/81c3e8cbb42f9cd6d2c1a7b4f95a7eb70fa3f64c/runtime/bin/socket.cc#L362)
