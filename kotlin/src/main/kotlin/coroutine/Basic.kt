@@ -4,7 +4,6 @@ import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
 suspend fun main() {
-    launch()
     sayHello()
     doRunBlocking()
     println("${measureTimeMillis(::launchMultiCoroutine)}")
