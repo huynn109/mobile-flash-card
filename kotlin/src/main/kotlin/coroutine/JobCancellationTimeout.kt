@@ -3,11 +3,11 @@ package coroutine
 import kotlinx.coroutines.*
 
 fun main() {
-//    doJoin()
+    doJoin()
 //    doCancel()
 //    doFinally()
 //    doCoroutineNeverDie()
-    doTimeout()
+//    doTimeout()
 }
 
 /**
@@ -21,6 +21,9 @@ fun doJobs(): Job {
     }
 }
 
+/**
+ * [join] Đợi khi nào job hoàn thành mới chạy tiếp
+ */
 fun doJoin() = runBlocking {
     val job = doJobs()
     println("Hello,")
