@@ -6,7 +6,9 @@ fun main() {
 //    doExceptionLaunch()
 //    doExceptionAsync()
 //    doCatch()
-    doCoroutineExceptionHandle()
+//    doCoroutineExceptionHandle()
+//    doSuperVision()
+    doSuperVisionScope()
 }
 
 /**
@@ -65,4 +67,56 @@ fun doCoroutineExceptionHandle() = runBlocking {
         println("Caught exception handle $exception")
     }
     doCatch(handler)
+}
+
+/**
+ * [SupervisorJob] xài Job này để khi các coroutine con xảy ra những thằng coroutine con khác vẫn chạy tiếp
+ */
+fun doSuperVision() = runBlocking {
+    val supervisor = SupervisorJob()
+    with(CoroutineScope(coroutineContext + supervisor)) {
+        // launch the first child -- its exception is ignored for this example (don't do this in practice!)
+        val firstChild = launch(CoroutineExceptionHandler { _, _ ->  }) {
+            println("First child is failing")
+            throw AssertionError("First child is cancelled")
+        }
+        // launch the second child
+        val secondChild = launch {
+            firstChild.join()
+            // Cancellation of the first child is not propagated to the second child
+            println("First child is cancelled: ${firstChild.isCancelled}, but second child is still active")
+            try {
+                delay(Long.MAX_VALUE)
+            } finally {
+                // But cancellation of the supervisor is propagated
+                println("Second child is cancelled because supervisor is cancelled")
+            }
+        }
+        // wait until the first child fails & completes
+        firstChild.join()
+        println("Cancelling supervisor")
+        supervisor.cancel()
+        secondChild.join()
+    }
+}
+
+/**
+ * Dùng thằng này launch coroutine tác dụng tương tự như [SupervisorJob]
+ * Lưu ý các exception của con không được truyền đến thằng cha
+ */
+fun doSuperVisionScope() = runBlocking {
+    val handler = CoroutineExceptionHandler { _, exception ->
+        println("Caught $exception")
+    }
+    supervisorScope {
+        val first = launch(handler) {
+            println("Child throws an exception")
+            throw AssertionError()
+        }
+        val second = launch {
+            delay(100)
+            println("Scope is completing")
+        }
+    }
+    println("Scope is completed")
 }
