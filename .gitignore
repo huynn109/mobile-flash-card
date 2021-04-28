@@ -84,3 +84,11 @@ lint/tmp/
 kotlin/.idea/
 
 .DS_Store
+
+android/android-thread/.idea/
+
+android/compose-basic/.idea/
+
+flutter/asynchronous/.idea/
+
+*.lock

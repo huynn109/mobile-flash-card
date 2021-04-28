@@ -21,7 +21,7 @@ fun launchCoroutine() {
 
 /**
  * Suspend hoặc coroutine mới call được mấy thằng suspend nhe. Vì thằng [delay] là thằng suspend
- * Không chịu thêm suspend thì bị báo lỗi đỏ lè như này ok?
+ * Không chịu thêm suspend thì bị báo lỗi đỏ lè như này:
  * Error: Kotlin: Suspend functions are only allowed to be called from a coroutine or another suspend function
  */
 suspend fun sayHello() {

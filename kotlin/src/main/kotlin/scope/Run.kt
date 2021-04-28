@@ -4,7 +4,7 @@ fun main() {
     val person = Person.personNotNull.doRun {
         position = "Nha Trang"
         incrementAge(3)
-        return@doRun this
+        this
     }
     println(person)
 }

@@ -49,7 +49,8 @@ fun getCoroutineContext() = runBlocking<Unit> {
 }
 
 /**
- * WithContext dùng để with giữa các context của Coroutine(chuyển đổi thread chỉ là 1 phần vì một element sẽ đươc chạy trên thread quy định)
+ * WithContext dùng để with giữa các context của Coroutine
+ * (chuyển đổi thread chỉ là 1 phần vì một element sẽ đươc chạy trên thread quy định)
  * VD từ background lên UI để update UI
  */
 @ObsoleteCoroutinesApi
