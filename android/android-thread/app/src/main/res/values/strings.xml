@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Thread</string>
+    <string name="get_handle_message">Get handle message</string>
 </resources>
