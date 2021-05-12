@@ -57,5 +57,4 @@ Dạo này già rồi. Note lại để thôi quên :|
     - [Code native để kết nối socket nè](https://github.com/dart-lang/sdk/blob/81c3e8cbb42f9cd6d2c1a7b4f95a7eb70fa3f64c/runtime/bin/socket.cc#L362)
 ## Design pattern
 #### Creational Design Pattern (Nhóm khởi tạo)
-1. Singleton
-2. 
+1. [Singleton](https://github.com/huynn109/mobile-flash-card/blob/main/design-pattern/src/main/kotlin/creational/Singleton.kt)
