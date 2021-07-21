@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Compose">
         <activity
-            android:name="com.huynn109.compose.Day1"
+            android:name=".Day2"
+            android:exported="true"
+            android:label="@string/title_activity_day2"
+            android:theme="@style/Theme.Compose.NoActionBar" />
+        <activity
+            android:name=".Day1"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Compose.NoActionBar">

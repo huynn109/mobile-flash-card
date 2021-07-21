@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetPack Compose</string>
+    <string name="title_activity_day2">Day2</string>
 </resources>
