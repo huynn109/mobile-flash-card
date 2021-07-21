@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Compose">
         <activity
-            android:name=".Day2"
+            android:name=".Day4"
             android:exported="true"
-            android:label="@string/title_activity_day2"
+            android:label="@string/title_activity_day4"
             android:theme="@style/Theme.Compose.NoActionBar" />
         <activity
             android:name=".Day1"
