@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huynn109.androidcore">
-    <permission android:name="com.huynn109.androidcore.READ_WRITE"/>
+
+    <permission android:name="com.huynn109.androidcore.READ_WRITE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCore">
+        <activity android:name=".ActivityLifecycle" />
         <activity android:name=".ContentProviderActivity" />
         <activity android:name=".BroadcastActivity" />
         <activity android:name=".MainActivity">
@@ -29,7 +32,7 @@
             android:name=".MyContentProvider"
             android:authorities="com.huynn109.androidcore.MyContentProvider.provider"
             android:exported="true"
-            android:permission="com.huynn109.androidcore.MyContentProvider.provider.READ_WRITE"/>
+            android:permission="com.huynn109.androidcore.MyContentProvider.provider.READ_WRITE" />
     </application>
 
 </manifest>

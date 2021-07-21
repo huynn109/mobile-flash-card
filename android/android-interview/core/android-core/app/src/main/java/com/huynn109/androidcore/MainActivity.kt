@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        findViewById<Button>(R.id.btnLifecycle).setOnClickListener(this)
         findViewById<Button>(R.id.btnBroadcast).setOnClickListener(this)
         findViewById<Button>(R.id.btnContentProvider).setOnClickListener(this)
     }
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnContentProvider -> {
                 this.startActivity(Intent(this, ContentProviderActivity::class.java))
+            }
+            R.id.btnLifecycle -> {
+                this.startActivity(Intent(this, ActivityLifecycle::class.java))
             }
         }
     }

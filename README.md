@@ -29,7 +29,8 @@ Dạo này già rồi. Note lại để thôi quên :|
 2. [Thread](https://github.com/huynn109/mobile-flash-card/blob/main/android/android-thread/app/src/main/java/com/example/androidthread/MainActivity.kt) 
 ## Android interview
 ### Core
-- Kể tên các Android application component trong Android?
+- Kể tên các Android application `component` trong Android?
+    - `Activity`, `Service`, `Broadcast Receiver`, `Content Provider`
 - `Context` là gì? sử dụng nó như thế nào?
     - Context là một thành phần trong ứng dụng Android cung cấp các quyền truy cập thông tin về trạng thái của ứng dụng và resource đồng thời
     nó còn giúp khởi chạy các component như Activity, Service, Receiver
@@ -55,6 +56,8 @@ Dạo này già rồi. Note lại để thôi quên :|
     - [Từ Dart IO gọi qua native](https://github.com/dart-lang/sdk/blob/bddded13aad0ee8b1bff7f235a548df5228e5df6/sdk/lib/_internal/vm/bin/socket_patch.dart#L1517)
     - [Từ Dart IO gọi qua native](https://github.com/dart-lang/sdk/blob/bddded13aad0ee8b1bff7f235a548df5228e5df6/sdk/lib/_internal/vm/bin/socket_patch.dart#L25)
     - [Code native để kết nối socket nè](https://github.com/dart-lang/sdk/blob/81c3e8cbb42f9cd6d2c1a7b4f95a7eb70fa3f64c/runtime/bin/socket.cc#L362)
+2. Widget
+    - Flutter render widget như thế nào?
 ## Design pattern
 #### Creational Design Pattern (Nhóm khởi tạo)
 1. [Singleton](https://github.com/huynn109/mobile-flash-card/blob/main/design-pattern/src/main/kotlin/creational/Singleton.kt)

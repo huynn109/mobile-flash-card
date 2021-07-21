@@ -1,0 +1,11 @@
+rootProject.name = "IntergrateNative"
+include ':app'
+include ':Flutter'
+
+project(':Flutter').projectDir = new File(settingsDir, 'Flutter/android/app')
+println settingsDir.absoluteFile.path
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        'integrate-native/flutter-integrate/flutter_activity/.android/include_flutter.groovy'
+))
