@@ -22,10 +22,10 @@ Dạo này già rồi. Note lại để thôi quên :|
     - [Flow](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/Flow.kt)
 ## Android
 1. [Course](https://developer.android.com/courses/android-basics-kotlin/course)
-    - [Basic nè](https://developer.android.com/courses/android-basics-kotlin/unit-1)
-    - [Layout nè](https://developer.android.com/courses/android-basics-kotlin/unit-2)
-    - [Navigation nè](https://developer.android.com/courses/android-basics-kotlin/unit-3)
-    - [Call Api nè](https://developer.android.com/courses/android-basics-kotlin/unit-3)
+    - [Basic](https://developer.android.com/courses/android-basics-kotlin/unit-1)
+    - [Layout](https://developer.android.com/courses/android-basics-kotlin/unit-2)
+    - [Navigation](https://developer.android.com/courses/android-basics-kotlin/unit-3)
+    - [Call Api](https://developer.android.com/courses/android-basics-kotlin/unit-3)
 2. [Thread](https://github.com/huynn109/mobile-flash-card/blob/main/android/android-thread/app/src/main/java/com/example/androidthread/MainActivity.kt) 
 ## Android interview
 ### Core
