@@ -12,7 +12,7 @@ Interview
     - Return được chứ k phải méo return được như thread
     - Không phải thread nhưng chạy mội nùi tác vụ được. Thread chạy một nùi để ngẽn cổ chai die luôn à
     - Một thread chạy được nhìu coroutine, chạy được cả trên main thread
-    - Cách implement giống nhau cho nhìu ngôn ngữ, sau này thất nghiệp qua làm Js cũng biết code coroutine
+    - Cách implement giống nhau cho nhìu ngôn ngữ, Js cũng có
     - [Basic](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/Basic.kt)
     - [Context - Dispatchter](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/ContextAndDispatcher.kt)
     - [Job - Cancel - Timeout](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/JobCancellationTimeout.kt)
