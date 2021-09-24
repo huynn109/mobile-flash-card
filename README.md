@@ -1,5 +1,5 @@
-# Fucking note
-Dạo này già rồi. Note lại để thôi quên :|
+# Note
+:|
 ## Kotlin
 1. [Scope function](https://kotlinlang.org/docs/scope-functions.html)
     - [also](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/scope/Also.kt)
