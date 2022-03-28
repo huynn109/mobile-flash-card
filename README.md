@@ -1,5 +1,5 @@
-# Fucking note
-Dạo này già rồi. Note lại để thôi quên :|
+# Note
+Interview
 ## Kotlin
 1. [Scope function](https://kotlinlang.org/docs/scope-functions.html)
     - [also](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/scope/Also.kt)
@@ -12,7 +12,7 @@ Dạo này già rồi. Note lại để thôi quên :|
     - Return được chứ k phải méo return được như thread
     - Không phải thread nhưng chạy mội nùi tác vụ được. Thread chạy một nùi để ngẽn cổ chai die luôn à
     - Một thread chạy được nhìu coroutine, chạy được cả trên main thread
-    - Cách implement giống nhau cho nhìu ngôn ngữ, sau này thất nghiệp qua làm Js cũng biết code coroutine
+    - Cách implement giống nhau cho nhìu ngôn ngữ, Js cũng có
     - [Basic](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/Basic.kt)
     - [Context - Dispatchter](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/ContextAndDispatcher.kt)
     - [Job - Cancel - Timeout](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/JobCancellationTimeout.kt)
@@ -21,11 +21,11 @@ Dạo này già rồi. Note lại để thôi quên :|
     - [Exception](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/ExceptionAndSuperVisionJobAndSuperVisionScope.kt)
     - [Flow](https://github.com/huynn109/mobile-flash-card/blob/main/kotlin/src/main/kotlin/coroutine/Flow.kt)
 ## Android
-1. [Nơi tình yêu bắt đầu](https://developer.android.com/courses/android-basics-kotlin/course)
-    - [Basic nè](https://developer.android.com/courses/android-basics-kotlin/unit-1)
-    - [Layout nè](https://developer.android.com/courses/android-basics-kotlin/unit-2)
-    - [Navigation nè](https://developer.android.com/courses/android-basics-kotlin/unit-3)
-    - [Call Api nè](https://developer.android.com/courses/android-basics-kotlin/unit-3)
+1. [Course](https://developer.android.com/courses/android-basics-kotlin/course)
+    - [Basic](https://developer.android.com/courses/android-basics-kotlin/unit-1)
+    - [Layout](https://developer.android.com/courses/android-basics-kotlin/unit-2)
+    - [Navigation](https://developer.android.com/courses/android-basics-kotlin/unit-3)
+    - [Call Api](https://developer.android.com/courses/android-basics-kotlin/unit-3)
 2. [Thread](https://github.com/huynn109/mobile-flash-card/blob/main/android/android-thread/app/src/main/java/com/example/androidthread/MainActivity.kt) 
 ## Android interview
 ### Core
