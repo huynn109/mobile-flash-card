@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_activity/app_router.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  static const platform = MethodChannel('com.huynn109/native');
+  String _batteryLevel = 'Unknown battery level.';
 
   void _incrementCounter() {
     setState(() {
@@ -49,10 +52,15 @@ class _HomePageState extends State<HomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             OutlinedButton(
-                onPressed: () {
-                  context.router.push(DetailRoute());
-                },
-                child: Text("Go to Detail"))
+              onPressed: () {
+                context.router.push(DetailRoute());
+              },
+              child: Text("Go to Detail"),
+            ),
+            OutlinedButton(
+              onPressed: _getBatteryLevel,
+              child: Text("Battery level: $_batteryLevel"),
+            ),
           ],
         ),
       ),
@@ -62,5 +70,19 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Future<void> _getBatteryLevel() async {
+    String batteryLevel;
+    try {
+      final int result = await platform.invokeMethod('getBatteryLevel');
+      batteryLevel = 'Battery level at $result % .';
+    } on PlatformException catch (e) {
+      batteryLevel = "Failed to get battery level: '${e.message}'.";
+    }
+
+    setState(() {
+      _batteryLevel = batteryLevel;
+    });
   }
 }
