@@ -1,0 +1,80 @@
+<div class="problem-statement">
+ <div class="header">
+  <div class="title">
+   H. Holiday Wall Ornaments
+  </div>
+  <div class="time-limit">
+   <div class="property-title">
+    time limit per test
+   </div>3 seconds
+  </div>
+  <div class="memory-limit">
+   <div class="property-title">
+    memory limit per test
+   </div>512 megabytes
+  </div>
+  <div class="input-file">
+   <div class="property-title">
+    input
+   </div>standard input
+  </div>
+  <div class="output-file">
+   <div class="property-title">
+    output
+   </div>standard output
+  </div>
+ </div>
+ <div>
+  <p>The Winter holiday will be here soon. Mr. Chanek wants to decorate his house's wall with ornaments. The wall can be represented as a binary string $a$ of length $n$. His favorite nephew has another binary string $b$ of length $m$ ($m \leq n$).</p>
+  <p>Mr. Chanek's nephew loves the non-negative integer $k$. His nephew wants exactly $k$ occurrences of $b$ as substrings in $a$. </p>
+  <p>However, Mr. Chanek does not know the value of $k$. So, for each $k$ ($0 \leq k \leq n - m + 1$), find the minimum number of elements in $a$ that have to be changed such that there are exactly $k$ occurrences of $b$ in $a$.</p>
+  <p>A string $s$ occurs exactly $k$ times in $t$ if there are exactly $k$ different pairs $(p,q)$ such that we can obtain $s$ by deleting $p$ characters from the beginning and $q$ characters from the end of $t$.</p>
+ </div>
+ <div class="input-specification">
+  <div class="section-title">
+   Input
+  </div>
+  <p>The first line contains two integers $n$ and $m$ ($1 \leq m \leq n \leq 500$) — size of the binary string $a$ and $b$ respectively.</p>
+  <p>The second line contains a binary string $a$ of length $n$.</p>
+  <p>The third line contains a binary string $b$ of length $m$.</p>
+ </div>
+ <div class="output-specification">
+  <div class="section-title">
+   Output
+  </div>
+  <p>Output $n - m + 2$ integers — the $(k+1)$-th integer denotes the minimal number of elements in $a$ that have to be changed so there are exactly $k$ occurrences of $b$ as a substring in $a$.</p>
+ </div>
+ <div class="sample-tests">
+  <div class="section-title">
+   Example
+  </div>
+  <div class="sample-test">
+   <div class="input">
+    <div class="title">
+     Input
+    </div>
+    <pre>9 3
+100101011
+101
+</pre>
+   </div>
+   <div class="output">
+    <div class="title">
+     Output
+    </div>
+    <pre>1 1 0 1 6 -1 -1 -1
+</pre>
+   </div>
+  </div>
+ </div>
+ <div class="note">
+  <div class="section-title">
+   Note
+  </div>
+  <p>For $k = 0$, to make the string $a$ have no occurrence of <span class="tex-font-style-tt">101</span>, you can do one character change as follows.</p>
+  <p><span class="tex-font-style-tt">10010<span class="tex-font-style-bf">1</span>011</span> $\rightarrow$ <span class="tex-font-style-tt">10010<span class="tex-font-style-bf">0</span>011</span></p>
+  <p>For $k = 1$, you can also change a single character.</p>
+  <p><span class="tex-font-style-tt">100<span class="tex-font-style-bf">1</span>01011</span> $\rightarrow$ <span class="tex-font-style-tt">100<span class="tex-font-style-bf">0</span>01011</span></p>
+  <p>For $k = 2$, no changes are needed.</p>
+ </div>
+</div>

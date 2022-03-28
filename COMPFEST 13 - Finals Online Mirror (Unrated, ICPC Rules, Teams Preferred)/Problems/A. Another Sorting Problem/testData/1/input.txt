@@ -1,0 +1,6 @@
+5 2
+AA
+AB
+BB
+BA
+AZ

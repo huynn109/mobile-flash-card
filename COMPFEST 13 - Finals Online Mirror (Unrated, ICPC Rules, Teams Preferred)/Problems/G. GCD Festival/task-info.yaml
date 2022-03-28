@@ -1,0 +1,27 @@
+type: codeforces
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    /**
+     * Accomplished using the EduTools plugin by JetBrains https://plugins.jetbrains.com/plugin/10081-edutools
+     */
+
+    public class Main {
+       public static void main(String[] args) {
+          // Write your solution here
+       }
+    }
+  learner_created: false
+- name: testData/1/input.txt
+  visible: true
+  text: |-
+    5
+    3 6 2 1 4
+  learner_created: false
+- name: testData/1/output.txt
+  visible: true
+  text: 77
+  learner_created: false
+feedback_link: https://codeforces.com/contest/1575/problem/G?locale=en
+status: Unchecked

@@ -1,0 +1,129 @@
+<div class="problem-statement">
+ <div class="header">
+  <div class="title">
+   D. Divisible by Twenty-Five
+  </div>
+  <div class="time-limit">
+   <div class="property-title">
+    time limit per test
+   </div>2 seconds
+  </div>
+  <div class="memory-limit">
+   <div class="property-title">
+    memory limit per test
+   </div>512 megabytes
+  </div>
+  <div class="input-file">
+   <div class="property-title">
+    input
+   </div>standard input
+  </div>
+  <div class="output-file">
+   <div class="property-title">
+    output
+   </div>standard output
+  </div>
+ </div>
+ <div>
+  <p>Mr. Chanek has an integer represented by a string $s$. Zero or more digits have been erased and are denoted by the character <span class="tex-font-style-tt">_</span>. There are also zero or more digits marked by the character <span class="tex-font-style-tt">X</span>, meaning they're the same digit.</p>
+  <p>Mr. Chanek wants to count the number of possible integer $s$, where $s$ is divisible by $25$. Of course, $s$ must not contain any leading zero. He can replace the character <span class="tex-font-style-tt">_</span> with any digit. He can also replace the character <span class="tex-font-style-tt">X</span> with any digit, but it must be the same for every character <span class="tex-font-style-tt">X</span>.</p>
+  <p>As a note, a leading zero is any <span class="tex-font-style-tt">0</span> digit that comes before the first nonzero digit in a number string in positional notation. For example, <span class="tex-font-style-tt">0025</span> has two leading zeroes. An exception is the integer zero, (<span class="tex-font-style-tt">0</span> has no leading zero, but <span class="tex-font-style-tt">0000</span> has three leading zeroes).</p>
+ </div>
+ <div class="input-specification">
+  <div class="section-title">
+   Input
+  </div>
+  <p>One line containing the string $s$ ($1 \leq |s| \leq 8$). The string $s$ consists of the characters <span class="tex-font-style-tt">0</span>, <span class="tex-font-style-tt">1</span>, <span class="tex-font-style-tt">2</span>, <span class="tex-font-style-tt">3</span>, <span class="tex-font-style-tt">4</span>, <span class="tex-font-style-tt">5</span>, <span class="tex-font-style-tt">6</span>, <span class="tex-font-style-tt">7</span>, <span class="tex-font-style-tt">8</span>, <span class="tex-font-style-tt">9</span>, <span class="tex-font-style-tt">_</span>, and <span class="tex-font-style-tt">X</span>.</p>
+ </div>
+ <div class="output-specification">
+  <div class="section-title">
+   Output
+  </div>
+  <p>Output an integer denoting the number of possible integer $s$.</p>
+ </div>
+ <div class="sample-tests">
+  <div class="section-title">
+   Examples
+  </div>
+  <div class="sample-test">
+   <div class="input">
+    <div class="title">
+     Input
+    </div>
+    <pre>25
+</pre>
+   </div>
+   <div class="output">
+    <div class="title">
+     Output
+    </div>
+    <pre>1
+</pre>
+   </div>
+   <div class="input">
+    <div class="title">
+     Input
+    </div>
+    <pre>_00
+</pre>
+   </div>
+   <div class="output">
+    <div class="title">
+     Output
+    </div>
+    <pre>9
+</pre>
+   </div>
+   <div class="input">
+    <div class="title">
+     Input
+    </div>
+    <pre>_XX
+</pre>
+   </div>
+   <div class="output">
+    <div class="title">
+     Output
+    </div>
+    <pre>9
+</pre>
+   </div>
+   <div class="input">
+    <div class="title">
+     Input
+    </div>
+    <pre>0
+</pre>
+   </div>
+   <div class="output">
+    <div class="title">
+     Output
+    </div>
+    <pre>1
+</pre>
+   </div>
+   <div class="input">
+    <div class="title">
+     Input
+    </div>
+    <pre>0_25
+</pre>
+   </div>
+   <div class="output">
+    <div class="title">
+     Output
+    </div>
+    <pre>0
+</pre>
+   </div>
+  </div>
+ </div>
+ <div class="note">
+  <div class="section-title">
+   Note
+  </div>
+  <p>In the first example, the only possible $s$ is $25$.</p>
+  <p>In the second and third example, $s \in \{100, 200,300,400,500,600,700,800,900\}$.</p>
+  <p>In the fifth example, all possible $s$ will have at least one leading zero.</p>
+ </div>
+</div>

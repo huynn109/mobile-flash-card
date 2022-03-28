@@ -27,30 +27,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  pc3:
-    path: ../../../../../../Sendo/flutter_modules/pc3
-  senpay_aia:
-    path: ../../../../../../Sendo/dc1/app_senpay_aia
 
 dependency_overrides:
-  base_utils:
-    git:
-      ref: ft_1.20
-      url: https://gitlab.sendo.vn/dc2-mobile/base_utils.git
-  core_plugin:
-    git:
-      ref: stable
-      url: https://gitlab.sendo.vn/mobile-apps/flutter/coreplugin.git
-  flutter_cupertino_date_picker:
-    git:
-      ref: master
-      url: https://github.com/huanlirui/flutter-cupertino-date-picker
-  flutter_sticky_header: 0.4.2
-  flutter_svg: ^0.18.0
-  meta: 1.2.0
-  xml: 4.3.0
-  pin_code_text_field: 1.7.1
-  cupertino_icons: 1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
