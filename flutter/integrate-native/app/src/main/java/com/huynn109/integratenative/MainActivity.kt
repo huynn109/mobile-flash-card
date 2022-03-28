@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun preWarm() {
         if (!FlutterEngineCache.getInstance().contains(FLUTTER_ENGINE_ID)) {
             flutterEngine.apply {
-                navigationChannel.setInitialRoute("/flutter-activity")
                 dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
                 FlutterEngineCache.getInstance().put(FLUTTER_ENGINE_ID, this)
             }
