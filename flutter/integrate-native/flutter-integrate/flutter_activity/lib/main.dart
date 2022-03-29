@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_activity/app_router.dart';
+import 'package:flutter_activity/router_observer.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +21,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      routerDelegate: appRouter.delegate(),
+      routerDelegate: AutoRouterDelegate(
+        appRouter,
+        // this should always return new instances
+        navigatorObservers: () => [RouterObserver()],
+      ),
       routeInformationParser: appRouter.defaultRouteParser(),
     );
   }

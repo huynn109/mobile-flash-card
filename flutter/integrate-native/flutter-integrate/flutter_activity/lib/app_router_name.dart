@@ -2,6 +2,7 @@ abstract class Routes {
   Routes._();
 
   static const HOME = _Paths.HOME;
+  static const ROOT_ROUTER = _Paths.ROOT_ROUTER;
   static const DETAIL = _Paths.DETAIL;
   static const ARTICLE_DETAIL = _Paths.ARTICLE_DETAIL;
   static const LOGIN = _Paths.LOGIN;
@@ -21,6 +22,7 @@ abstract class Routes {
 
 abstract class _Paths {
   static const HOME = 'HomeRoute';
+  static const ROOT_ROUTER = 'RootRoute';
   static const DETAIL = 'DetailRoute';
   static const ARTICLE_DETAIL = 'ArticleDetailRoute';
   static const LOGIN = 'LoginRoute';

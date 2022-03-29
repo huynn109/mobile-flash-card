@@ -30,8 +30,11 @@ class MyFlutterViewController: FlutterViewController {
             //            self.receiveBatteryLevel(result: result)
             print(call.method)
             switch call.method {
-            case "actionClose":
-                self.newBackFlutter()
+            case "enableBack":
+                self.enableBack()
+                
+            case "disableBack":
+                self.disableBack()
                 
             case "getBatteryLevel":
                 self.receiveBatteryLevel(result: result)
@@ -41,6 +44,16 @@ class MyFlutterViewController: FlutterViewController {
             }
         })
         
+    }
+    
+    private func enableBack(){
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    private func disableBack(){
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     private func receiveBatteryLevel(result: FlutterResult) {

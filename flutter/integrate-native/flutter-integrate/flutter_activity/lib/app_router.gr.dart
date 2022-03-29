@@ -17,6 +17,10 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    RootRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+          routeData: routeData, child: const RootRouterPage());
+    },
     HomeRoute.name: (routeData) {
       final args =
           routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
@@ -31,17 +35,27 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   List<RouteConfig> get routes => [
-        RouteConfig(HomeRoute.name, path: '/'),
+        RouteConfig(RootRoute.name, path: '/'),
+        RouteConfig(HomeRoute.name, path: '/home-page'),
         RouteConfig(DetailRoute.name, path: '/detail-page'),
         RouteConfig('*#redirect', path: '*', redirectTo: '/', fullMatch: true)
       ];
 }
 
 /// generated route for
+/// [RootRouterPage]
+class RootRoute extends PageRouteInfo<void> {
+  const RootRoute() : super(RootRoute.name, path: '/');
+
+  static const String name = 'RootRoute';
+}
+
+/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<HomeRouteArgs> {
   HomeRoute({Key? key})
-      : super(HomeRoute.name, path: '/', args: HomeRouteArgs(key: key));
+      : super(HomeRoute.name,
+            path: '/home-page', args: HomeRouteArgs(key: key));
 
   static const String name = 'HomeRoute';
 }

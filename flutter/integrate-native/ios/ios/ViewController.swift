@@ -10,7 +10,7 @@ import Flutter
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var flutterViewController: FlutterViewController!
-    
+    var engine: FlutterEngine!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,23 +24,41 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         button.backgroundColor = UIColor.blue
         self.view.addSubview(button)
         self.view.backgroundColor = UIColor.white
+        
+        engine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
+        let batteryChannel = FlutterMethodChannel(name: "com.huynn109/native",
+                                                  binaryMessenger: engine.binaryMessenger)
+        batteryChannel.setMethodCallHandler({
+            (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            print(call.method)
+            switch call.method {
+            case "enableBack":
+                self.enableBack()
+                
+            case "disableBack":
+                self.disableBack()
+                
+            case "getBatteryLevel":
+                self.receiveBatteryLevel(result: result)
+            default:
+                result(FlutterMethodNotImplemented)
+                break;
+            }
+        })
     }
     
     @objc func showFlutter() {
-        let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
-        flutterEngine.viewController = nil
+        engine.viewController = nil
         flutterViewController =
-        FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        FlutterViewController(engine: engine, nibName: nil, bundle: nil)
         flutterViewController.modalPresentationStyle = .fullScreen
-        flutterViewController.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.navigationController?.pushViewController(flutterViewController, animated: true)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.enableBack()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,6 +67,28 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return self.navigationController?.viewControllers.count ?? 0 > 1
+    }
+    
+    private func enableBack(){
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    private func disableBack(){
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    private func receiveBatteryLevel(result: FlutterResult) {
+        let device = UIDevice.current
+        device.isBatteryMonitoringEnabled = true
+        if device.batteryState == UIDevice.BatteryState.unknown {
+            result(FlutterError(code: "UNAVAILABLE",
+                                message: "Battery info unavailable",
+                                details: nil))
+        } else {
+            result(Int(device.batteryLevel * 100))
+        }
     }
     
 }
