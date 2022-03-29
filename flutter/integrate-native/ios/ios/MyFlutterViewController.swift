@@ -7,6 +7,8 @@
 
 import UIKit
 import Flutter
+import Foundation
+import FlutterPluginRegistrant
 
 class MyFlutterViewController: FlutterViewController {
     var flutterChannel: FlutterMethodChannel!
@@ -21,12 +23,24 @@ class MyFlutterViewController: FlutterViewController {
             // Note: this method is invoked on the UI thread.
             // Handle battery messages.
             // Note: this method is invoked on the UI thread.
-            guard call.method == "getBatteryLevel" else {
+            //            guard call.method == "getBatteryLevel" else {
+            //                result(FlutterMethodNotImplemented)
+            //                return
+            //            }
+            //            self.receiveBatteryLevel(result: result)
+            print(call.method)
+            switch call.method {
+            case "actionClose":
+                self.newBackFlutter()
+                
+            case "getBatteryLevel":
+                self.receiveBatteryLevel(result: result)
+            default:
                 result(FlutterMethodNotImplemented)
-                return
+                break;
             }
-            self.receiveBatteryLevel(result: result)
         })
+        
     }
     
     private func receiveBatteryLevel(result: FlutterResult) {
@@ -39,6 +53,23 @@ class MyFlutterViewController: FlutterViewController {
         } else {
             result(Int(device.batteryLevel * 100))
         }
+    }
+    
+    private func newBackFlutter(_ animated: Bool = true) {
+        (UIApplication.shared.delegate as! AppDelegate).flutterVC.navigationController?.popViewController(animated: animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
 }
 

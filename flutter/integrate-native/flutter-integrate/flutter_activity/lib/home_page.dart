@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
@@ -34,41 +35,49 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("widget.title"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text('Router ~> ${ModalRoute.of(context)?.settings.name}'),
-            Text('Router ~> ${window.defaultRouteName}'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            OutlinedButton(
-              onPressed: () {
-                context.router.push(DetailRoute());
-              },
-              child: Text("Go to Detail"),
-            ),
-            OutlinedButton(
-              onPressed: _getBatteryLevel,
-              child: Text("Battery level: $_batteryLevel"),
-            ),
-          ],
+    return WillPopScope(
+      onWillPop: () async {
+        print("WillPopScope");
+        await SystemChannels.platform
+            .invokeMethod<void>('SystemNavigator.pop', true);
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("widget.title"),
         ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'You have pushed the button this many times:',
+              ),
+              Text('Router ~> ${ModalRoute.of(context)?.settings.name}'),
+              Text('Router ~> ${window.defaultRouteName}'),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  context.router.push(DetailRoute());
+                },
+                child: Text("Go to Detail"),
+              ),
+              OutlinedButton(
+                onPressed: _getBatteryLevel,
+                child: Text("Battery level: $_batteryLevel"),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
