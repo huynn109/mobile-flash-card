@@ -1,0 +1,10 @@
+
+Podfile.lock
+
+Pods/Local Podspecs/
+
+Pods/Pods.xcodeproj/
+
+*.xcfilelist
+
+Pods/
