@@ -6,6 +6,7 @@ import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import io.flutter.embedding.android.FlutterFragment
@@ -17,18 +18,35 @@ private const val TAG_INTEGRATE_FRAGMENT = "integrate_fragment"
 class IntegrateActivity : AppCompatActivity() {
 
     private var flutterFragment: FlutterFragment? = null
+    var isFlutterFragment = false
 
     companion object {
+        const val TAG = "IntegrateActivity"
+        const val KEY_IS_FLUTTER_FRAGMENT = "KEY_IS_FLUTTER_FRAGMENT"
         var result: MethodChannel.Result? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_integrate)
-        val fragmentManager = supportFragmentManager
+        isFlutterFragment = intent.getBooleanExtra(KEY_IS_FLUTTER_FRAGMENT, false) == true
+        if (isFlutterFragment) {
+            addFlutterFragment()
+        } else {
+            addFragmentView()
+        }
+    }
+
+    private fun addFragmentView() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frameLayout, IntegrateFragment.newInstance())
+            .commitAllowingStateLoss()
+    }
+
+    private fun addFlutterFragment() {
         flutterFragment = FlutterFragment.withNewEngine().renderMode(RenderMode.texture).build()
         flutterFragment?.let {
-            fragmentManager.beginTransaction()
+            supportFragmentManager.beginTransaction()
                 .add(R.id.frameLayout, it, TAG_INTEGRATE_FRAGMENT)
                 .commit()
         }
@@ -41,15 +59,17 @@ class IntegrateActivity : AppCompatActivity() {
     }
 
     private fun handleMethodChannel() {
-        MethodChannel(flutterFragment?.flutterEngine?.dartExecutor, "com.huynn109/native")
-            .setMethodCallHandler { call, result ->
-                when (call.method) {
-                    "getBatteryLevel" -> {
-                        val batteryLevel = getBatteryLevel()
-                        result.success(batteryLevel)
+        flutterFragment?.flutterEngine?.dartExecutor?.binaryMessenger?.let {
+            MethodChannel(it, "com.huynn109/native")
+                .setMethodCallHandler { call, result ->
+                    when (call.method) {
+                        "getBatteryLevel" -> {
+                            val batteryLevel = getBatteryLevel()
+                            result.success(batteryLevel)
+                        }
                     }
                 }
-            }
+        }
     }
 
     private fun getBatteryLevel(): Int {
@@ -74,16 +94,17 @@ class IntegrateActivity : AppCompatActivity() {
 
     override fun onPostResume() {
         super.onPostResume()
-        flutterFragment?.onPostResume()
+        if (isFlutterFragment) flutterFragment?.onPostResume()
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        flutterFragment?.onNewIntent(intent)
+        if (isFlutterFragment) flutterFragment?.onNewIntent(intent)
     }
 
     override fun onBackPressed() {
-        flutterFragment?.onBackPressed()
+        if (isFlutterFragment) flutterFragment?.onBackPressed()
+        else super.onBackPressed()
     }
 
     override fun onRequestPermissionsResult(
@@ -99,11 +120,11 @@ class IntegrateActivity : AppCompatActivity() {
     }
 
     override fun onUserLeaveHint() {
-        flutterFragment?.onUserLeaveHint()
+        if (isFlutterFragment) flutterFragment?.onUserLeaveHint()
     }
 
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
-        flutterFragment?.onTrimMemory(level)
+        if (isFlutterFragment) flutterFragment?.onTrimMemory(level)
     }
 }

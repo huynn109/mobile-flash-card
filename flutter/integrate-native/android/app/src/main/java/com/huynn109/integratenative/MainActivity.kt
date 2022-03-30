@@ -11,12 +11,12 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
-import com.huynn109.integratenative.R
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var flutterEngine: FlutterEngine
@@ -84,9 +84,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 )
             }
             R.id.btnFragment -> {
-                startActivity(Intent(this, IntegrateActivity::class.java))
+                startActivity(Intent(this, IntegrateActivity::class.java).apply {
+                    putExtra(IntegrateActivity.KEY_IS_FLUTTER_FRAGMENT, true)
+                })
             }
             R.id.btnView -> {
+                startActivity(Intent(this, IntegrateActivity::class.java).apply {
+                    putExtra(IntegrateActivity.KEY_IS_FLUTTER_FRAGMENT, false)
+                })
             }
             R.id.btnPreWarm -> {
                 preWarm()
