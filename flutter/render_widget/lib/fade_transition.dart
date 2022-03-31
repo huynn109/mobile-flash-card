@@ -55,7 +55,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
                 onPressed: () {
                   animationController.repeat(reverse: true);
                 },
-                child: Text("Animation Button"),
+                child: Text("Animation Button ${DateTime.now()}"),
               ),
             ],
           ),
